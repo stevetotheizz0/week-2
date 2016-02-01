@@ -16,7 +16,7 @@
 ## Javascript Functions
 - Organization
 - Composition
-- Side-effe cts/purity
+- Side-effects/purity
 
 ## Underscore & Imports
 - API exploration

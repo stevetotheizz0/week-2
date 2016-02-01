@@ -1,3 +1,4 @@
+@@ -1,124 +0,0 @@
 <!DOCTYPE html>
 <html>
   <head>
@@ -51,7 +52,7 @@
 
     ===================== */
 
-    var data = bikeArrayClean;
+    var data = bikeArrayDirty;
 
     /* =====================
 
@@ -59,7 +60,29 @@
 
     ===================== */
 
+    var dataFiltered = []
 
+    var cleanTheData = function(){
+      for(i = 0 ; i < bikeArrayDirty.length; i++) {
+        if (bikeArrayDirty[i].length > 4) {
+          bikeArrayDirty[i].splice(0, 1);
+        }
+      }
+    }
+
+    var filterTheData = function() {
+      for(i = 0 ; i < bikeArrayDirty.length; i++) {
+        if (parseInt(bikeArrayDirty[i][3]) >= 20) {
+          dataFiltered.push(bikeArrayDirty[i])
+        }
+      }
+    }
+
+    var addMarkers = function() {
+      for(i = 0 ; i < dataFiltered.length; i++) {
+        L.marker([parseFloat(dataFiltered[i][1]), parseFloat(dataFiltered[i][0])]).addTo(map).bindPopup(dataFiltered[i][2]);
+      }
+    }
 
     /* =====================
 
@@ -85,8 +108,11 @@
     Start code to add markers to map
 
     ===================== */
-
-
+    for(i = 0 ; i < bikeArrayDirty.length; i++) {
+      cleanTheData();
+      filterTheData();
+    }
+    addMarkers()
 
     /* =====================
 

@@ -1,3 +1,4 @@
+@@ -1,83 +0,0 @@
 <!DOCTYPE html>
 <html>
   <head>
@@ -49,6 +50,7 @@
       zoom: 14
     });
 
+
     var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}', {
       attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       subdomains: 'abcd',
@@ -62,10 +64,14 @@
     Start code
 
     ===================== */
-
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
+    var restaurantData = [
+      [39.953673, -75.188592, "Shake Shack?"],
+      [39.952161, -75.195627,"Crappy College Bar"],
+      [39.959769, -75.201807, "Something Else"]
+    ]
+    for(i = 0 ; i < restaurantData.length; i++){
+    L.marker([restaurantData[i][0], restaurantData[i][1]]).addTo(map).bindPopup(restaurantData[i][2]);
+    }
 
     /* =====================
 

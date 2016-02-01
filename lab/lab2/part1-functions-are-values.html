@@ -1,3 +1,4 @@
+@@ -1,79 +0,0 @@
 <!DOCTYPE html>
 <html>
   <head></head>
@@ -32,7 +33,7 @@
       var exampleSum = 0; // To count of the strings
 
       // A loop for summing the contents of theArray
-      for (var i = 0; i < theArray.length; i++) {
+      var arrayAdd = function(i){
         var arrayValue = theArray[i];
         if (typeof arrayValue === 'string') {         // String case
           exampleSum = exampleSum + arrayValue.length
@@ -48,19 +49,32 @@
       Start code
 
       ===================== */
-
-      // Store sum you compute in this variable:
       var yourSum = 0;
 
+      var arrayFunc = function(i) {
+        if (typeof theArray[i] === 'string') {         // String case
+          yourSum = exampleSum + theArray[i].length
+        } else if (typeof arrayValue === 'number') {  // Number case
+          yourSum = exampleSum + theArray[i]
+        } else {                                      // Otherwise
+          console.log("Not sure how to proceed with value:", theArray[i])
+          }
+        }
+      // Store sum you compute in this variable:
+
+
       // Refactor the work above into a few different functions that are reusable to the extent that you can
-      for (var i = 0; i < theArray.length, i++) { /* Do stuff here */ }
+      for (var i = 0; i < theArray.length; i++) { /* Do stuff here */
+        arrayAdd(i)
+        arrayFunc(i)
+      }
 
       /* =====================
 
       End code
 
       ===================== */
-      console.log("Success: ", yourSum === 169)
+      console.log(yourSum, "Success: ", yourSum === 172);
     </script>
   </body>
 </html>

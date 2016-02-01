@@ -51,28 +51,33 @@
        Remember: functions are meant to facilitate code comprehension and reuse.
       ===================== */
 
+      //var jsonToCsv = function(json) { console.log(json); };
 
-      /* =====================
+      var convertToArray = function (input){
+        var array_keys = Object.keys(input[0])
+        array_values.push(array_keys)
+        for (each in input) {
+          var smallList = []
+          for (key in array_keys){
+            smallList.push(input[each][array_keys[key]])
+          }
+          array_values.push(smallList)
+        }
+      };
 
-      Start code
+      var addMarkers = function(map) {
+        for(i = 1 ; i < array_values.length; i++) {
+          L.marker([array_values[i][1], array_values[i][0]],{draggable: true}).addTo(map).bindPopup(array_values[i][3]);
+        };
+      };
 
-      ===================== */
+      //jsonToCsv(healthCenters);
 
-      var jsonToCsv = function(json) { console.log(json); };
-
-
-      var addMarkers = function(map) {};
-
-      /* =====================
-
-      End code
-
-      ===================== */
-
-
-      jsonToCsv(healthCenters);
+      var array_values = [];
+      convertToArray(healthCenters);
       addMarkers(map);
+
     </script>
-    <!--Your code ends here-->
+
   </body>
 </html>
